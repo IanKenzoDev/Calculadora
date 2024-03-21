@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA</title>
+    <style>
+        body {
+            background-color: gray;
+        }
+
+        h1 {
+            font-size: 45px;
+            color: white;
+            text-align: center;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            border: 2px solid #333;
+            padding: 2px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .paragrafoum {
+            color: white;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        .calculadora {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>TESTE CALCULADORA</h1>
+    <br>
+    <p class="paragrafoum">Digite aqui os valores para obter o resultado:</p>
+    <br>
+
+    <div class="calculadora">
+        <input type="number" id="valor1">
+        <br><br><br><br>
+
+        <select id="operação">
+            <option value="somar">Soma</option>
+            <option value="subtrair">Subtração</option>
+            <option value="dividir">Divisão</option>
+            <option value="multiplicar">Multipliação</option>
+
+        </select>
+
+        <br><br><br><br>
+        <input type="number" id="valor2">
+        <br><br><br>
+        <input type="submit" value="CALCULAR" onclick="calcular()">
+
+    </div>
+
+    <span id="resultado" class="paragrafoum"></span>
+
+
+
+
+
+
+</body>
+<script>
+    function calcular() {
+        var valor1 = parseFloat(document.getElementById('valor1').value);
+        var valor2 = parseFloat(document.getElementById('valor2').value);
+        var operação = document.getElementById('operação').value
+        var resultado;
+
+        switch (operação) {
+            case 'somar':
+                resultado = valor1 + valor2
+                break;
+
+            case 'subtrair':
+                resultado = valor1 - valor2
+                break;
+
+            case 'dividir':
+                if (valor2 !== 0) {
+                    resultado = valor1 / valor2;
+                } else {
+                    alert('Não é possível dividir por zero!');
+                    return;
+                }
+                break;
+
+            case 'multiplicar':
+                resultado = valor1 * valor2
+                break;
+
+            default: 
+                alert("Operação inválida!")
+                return
+        }
+
+
+        alert("O resultado foi: " + resultado)
+
+    }
+
+
+
+</script>
+
+</html>
